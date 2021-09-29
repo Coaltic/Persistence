@@ -7,7 +7,7 @@ public class AdjustScript : MonoBehaviour
     // Start is called before the first frame update
     private void OnGUI()
     {
-        if(GUI.Button(new Rect (10, 100, 100, 30), "Health Up"))
+        /*if(GUI.Button(new Rect (10, 100, 100, 30), "Health Up"))
         {
             GameManager.control.health += 10;
         }
@@ -22,7 +22,7 @@ public class AdjustScript : MonoBehaviour
         if (GUI.Button(new Rect(10, 220, 115, 30), "Experience Down"))
         {
             GameManager.control.experience -= 10;
-        }
+        }*/
 
         if (GUI.Button(new Rect(10, 260, 115, 30), "Save"))
         {
@@ -33,4 +33,11 @@ public class AdjustScript : MonoBehaviour
             GameManager.control.Load();
         }
     }
+
+    public void CookieUpdate()
+    {
+        GameManager.control.cookies += 1;
+        //GUI.Label(new Rect(10, 10, 100, 30), "Cookies: " + GameManager.control.cookies);
+    }
+
 }

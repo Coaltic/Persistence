@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public float health;
     public float experience;
+    public int cookies;
 
     void Awake()
     {
@@ -25,11 +26,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 30), "Health: " + health);
         GUI.Label(new Rect(10, 40, 150, 30), "Experience: " + experience);
-    }
+    }*/
 
     public void Save()
     {
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         PlayerData data = new PlayerData();
         data.health = health;
         data.experience = experience;
+        data.cookies = cookies;
 
         bf.Serialize(file, data);
         file.Close();
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
 
             health = data.health;
             experience = data.experience;
+            cookies = data.cookies;
+
         }
     }
 
@@ -67,6 +71,8 @@ class PlayerData
 
     public float health;
     public float experience;
+
+    public int cookies;
 
 
 

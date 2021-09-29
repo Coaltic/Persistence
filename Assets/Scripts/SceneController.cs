@@ -16,7 +16,7 @@ public class SceneController : MonoBehaviour
         }
     }*/
 
-    public void LoadScene1()
+    /*public void LoadScene1()
     {
         SceneManager.LoadScene("Scene1");
     }
@@ -24,5 +24,15 @@ public class SceneController : MonoBehaviour
     public void LoadScene2()
     {
         SceneManager.LoadScene("Scene2");
+    }*/
+
+    public void SwitchScene(int scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
