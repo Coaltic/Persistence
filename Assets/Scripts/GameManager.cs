@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class GameManager : MonoBehaviour
     public float health;
     public float experience;
     public int cookies;
+    public int score;
+    public int ammo;
+    public int stamina;
+    public int mana;
 
     void Awake()
     {
@@ -26,11 +31,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 30), "Health: " + health);
-        GUI.Label(new Rect(10, 40, 150, 30), "Experience: " + experience);
-    }*/
+    
 
     public void Save()
     {
@@ -41,6 +42,11 @@ public class GameManager : MonoBehaviour
         data.health = health;
         data.experience = experience;
         data.cookies = cookies;
+
+        data.score = score;
+        data.ammo = ammo;
+        data.stamina = stamina;
+        data.mana = mana;
 
         bf.Serialize(file, data);
         file.Close();
@@ -59,6 +65,15 @@ public class GameManager : MonoBehaviour
             health = data.health;
             experience = data.experience;
             cookies = data.cookies;
+            score = data.score;
+            ammo = data.ammo;
+            stamina = data.stamina;
+            mana = data.mana;
+
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+
+            //AdjustScript.OnSceneLoaded(scene);
 
         }
     }
@@ -73,6 +88,12 @@ class PlayerData
     public float experience;
 
     public int cookies;
+
+    public int score;
+    public int ammo;
+    public int stamina;
+    public int mana;
+
 
 
 

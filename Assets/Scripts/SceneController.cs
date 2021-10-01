@@ -6,29 +6,26 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public int sceneToLoad;
-    // Start is called before the first frame update
-    /*void OnGUI()
+    public static SceneController control;
+
+    void Awake()
     {
-        GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height - 80, 100, 30), "Current Scene: " + (Application.loadedLevel + 1));
-        if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height - 50, 100, 40), "Load Scene " + (sceneToLoad + 1)))
+        if (control == null)
         {
-            Application.LoadLevel(sceneToLoad);
+            DontDestroyOnLoad(gameObject);
+            control = this;
         }
-    }*/
-
-    /*public void LoadScene1()
-    {
-        SceneManager.LoadScene("Scene1");
+        else if (control != this)
+        {
+            Destroy(gameObject);
+        }
     }
-
-    public void LoadScene2()
-    {
-        SceneManager.LoadScene("Scene2");
-    }*/
 
     public void SwitchScene(int scene)
     {
         SceneManager.LoadScene(scene);
+
+
     }
 
     public void QuitGame()
